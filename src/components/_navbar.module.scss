@@ -10,11 +10,16 @@ $shadow-color-main: #3e0f29;
 }
 
 .navbar {
-  // position: sticky;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 3rem;
+  left: 3rem;
   display: flex;
   justify-content: flex-start;
   padding: 2rem 6rem;
-  margin-bottom: 15rem;
+  // margin-right: 3rem;
+  // margin-left: 3rem;
   gap: 3rem;
   border-top-left-radius: 4rem;
   border-top-right-radius: 4rem;

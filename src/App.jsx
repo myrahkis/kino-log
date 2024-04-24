@@ -1,20 +1,12 @@
-import "./App.css";
 import Navbar from "./components/Navbar";
 import { useState } from "react";
 import Router from "./utils/Router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import SearchList from "./pages/SearchList";
+import Footer from "./components/Footer";
 
 function App() {
   const [query, setQuery] = useState("");
-  // const { data, isLoading, isError } = useQuery(
-  //   ["film"],
-  //   () => fetchAge()
-  //   // {
-  //   //   enabled: false,
-  //   // }
-  // );
-
-  // console.log(data);
 
   const queryClient = new QueryClient();
 
@@ -22,8 +14,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="App">
         <Navbar searchQuery={query} onSearch={setQuery} />
-        <Router searchQuery={query} />
+        {query === "" ? (
+          <Router searchQuery={query} />
+        ) : (
+          <SearchList query={query} />
+        )}
       </div>
+      <Footer />
     </QueryClientProvider>
   );
 }

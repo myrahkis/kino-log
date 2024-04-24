@@ -30,3 +30,13 @@ body {
   background-color: $background-color;
   color: $text-color;
 }
+
+.App {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 13rem;
+  padding-bottom: 6rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
