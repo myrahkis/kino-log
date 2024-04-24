@@ -1,0 +1,15 @@
+$background-color: #425500;
+$text-color: #bfa5a5;
+$active-color: white;
+
+.navbar {
+  background-color: $background-color;
+}
+
+.nav-link {
+  color: $text-color;
+}
+
+.nav-link__active {
+  color: $active-color;
+}
