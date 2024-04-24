@@ -1,15 +1,48 @@
-$background-color: #425500;
-$text-color: #bfa5a5;
-$active-color: white;
+$background-color: #86717a;
+$text-color: #bca5af;
+$active-color: #43142d;
+$shadow-color-main: #3e0f29;
 
-.navbar {
-  background-color: $background-color;
+%link-base {
+  text-decoration: none;
+  font-size: 3rem;
+  //   font-weight: ;
 }
 
-.nav-link {
+.navbar {
+  // position: sticky;
+  display: flex;
+  justify-content: flex-start;
+  padding: 2rem 6rem;
+  margin-bottom: 15rem;
+  gap: 3rem;
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+  border-bottom-left-radius: 9rem;
+  border-bottom-right-radius: 9rem;
+  background-color: $background-color;
+  box-shadow: 3px 3px #6d3b54, -1em 0 0.4em $shadow-color-main;
+}
+
+.navbar__nav-link {
+  @extend %link-base;
   color: $text-color;
 }
 
-.nav-link__active {
+.navbar__nav-link__active {
+  @extend %link-base;
   color: $active-color;
+}
+
+.navbar__input {
+  margin: 0 10rem;
+  padding: 1rem 2rem;
+  width: 50%;
+  border: 0.3rem solid $active-color;
+  border-radius: 2.5rem;
+  outline: none;
+
+  &:focus {
+    outline: #c990aa solid 0.4rem;
+  }
 }
