@@ -13,6 +13,7 @@ function Navbar({searchQuery, onSearch}) {
         className={({ isActive }) => {
           return isActive ? styles["navbar__nav-link__active"] : styles["navbar__nav-link"];
         }}
+
       >
         Home
       </NavLink>
