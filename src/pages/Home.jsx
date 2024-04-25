@@ -32,6 +32,7 @@ function Home({ setSelected }) {
   );
   const [topList, setTopList] = useState(null);
 
+  // работает только с VPN :c
   useEffect(
     function () {
       async function fetchTop() {
@@ -51,6 +52,11 @@ function Home({ setSelected }) {
     setSelected(film);
     navigate("/film-detail", { replace: true, state: { data: data } });
   }
+  function clickHandleTop(film) {
+    setSelected(film);
+    navigate("/film-detail", { replace: true, state: { data: topList } });
+  }
+
 
   function prevClickHandle() {
     if (page - 1 > 0) {
@@ -72,16 +78,17 @@ function Home({ setSelected }) {
           ))}
         </ul>
       </div>
-      <div>
-        <div className="btns-wrapper">
+      <div className={styles['top-wrapper']}>
+        <h1>Топ фильмов</h1>
+        <div className={styles["btns-wrapper"]}>
           <button onClick={prevClickHandle}>prev</button>
           <p>{page}</p>
           <button onClick={nextClickHandle}>next</button>
         </div>
-        <ul>
+        <ul className={styles['top-list']}>
           {topList?.map((film) => (
-            <li key={film.id}>
-              <img src={`${POSTER_PATH}${film.poster_path}`} alt="poster" />
+            <li className={styles['top-card']} key={film.id} onClick={() => clickHandleTop(film)}>
+              <img className={styles['top-card__poster']} src={`${POSTER_PATH}${film.poster_path}`} alt="poster" />
               <p>{film.title}</p>
               <p>{film.vote_average}</p>
             </li>

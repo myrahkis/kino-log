@@ -21,3 +21,31 @@
 
 .card__title {
 }
+
+.top-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 10rem;
+}
+
+.btns-wrapper {
+    display: flex;
+    gap: 2rem;
+}
+
+.top-list {
+    list-style: none;
+    display: grid;
+    grid-template: auto / repeat(4, 1fr);
+    row-gap: 8rem;
+}
+
+.top-card {
+    cursor: pointer;
+}
+
+.top-card__poster {
+    width: 15rem;
+    height: 20rem;
+}
