@@ -1,0 +1,57 @@
+$background-color: #4d1d36;
+$background-color-hover: #592841;
+
+.container {
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 35%;
+    padding: 4.5rem 0;
+    background-color: $background-color;
+    border-radius: 4rem;
+    list-style: none;
+}
+
+.preview {
+    cursor: pointer;
+    display: flex;
+    gap: 2rem;
+    padding: 0 4.5rem;
+
+    &:hover {
+        background-color: $background-color-hover;
+    }
+}
+
+.preview__poster {
+    width: 10rem;
+    height: 15rem;
+}
+
+.preview__title {
+
+}
+
+.card {
+    overflow: hidden;
+    position: sticky;
+    top: 10rem;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: fit-content;
+    padding: 4.5rem;
+    border-radius: 4rem;
+    background-color: $background-color;
+}
+
+.card__poster {
+    width: 20rem;
+    height: 30rem;
+}

@@ -1,3 +1,6 @@
+$background-color: #43142d;
+$thumb-color: #bca5af;
+
 .result-wrapper {
   display: grid;
   grid-template: auto / repeat(4, 1fr);
@@ -31,7 +34,7 @@
   text-align: justify;
   height: 11rem;
   padding: 1rem;
-  scrollbar-color: #bca5af #43142d;
+  scrollbar-color: $thumb-color $background-color;
   scrollbar-width: thin;
   scroll-behavior: smooth;
   scrollbar-gutter: stable both-edges;

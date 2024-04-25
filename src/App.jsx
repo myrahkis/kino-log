@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const [query, setQuery] = useState("");
-
+  const [selected, setSelected] = useState(null);
   const queryClient = new QueryClient();
 
   return (
@@ -15,9 +15,9 @@ function App() {
       <div className="App">
         <Navbar searchQuery={query} onSearch={setQuery} />
         {query === "" ? (
-          <Router searchQuery={query} />
+          <Router searchQuery={query} selected={selected} setSelected={setSelected}/>
         ) : (
-          <SearchList query={query} />
+          <SearchList query={query} setSearch={setQuery} setSelected={setSelected}/>
         )}
       </div>
       <Footer />

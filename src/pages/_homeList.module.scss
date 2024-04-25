@@ -1,0 +1,23 @@
+.list {
+    display: flex;
+    gap: 2rem;
+    overflow-x: scroll;
+    list-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable both-edges;
+}
+
+.card {
+    cursor: pointer;
+    padding: 2rem;
+    width: 20rem;
+}
+
+.card__poster {
+  width: 18rem;
+  height: 25rem;
+}
+
+.card__title {
+}
