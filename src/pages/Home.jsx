@@ -3,6 +3,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import styles from "./_homeList.module.scss";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
 const KEY = "1e11912acc74b0709e04f81e2455dc84";
 const POSTER_PATH = "https://image.tmdb.org/t/p/original/";
@@ -20,6 +21,7 @@ async function fetchPopular(signal) {
 }
 
 function Home({ setSelected }) {
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
   const { data, isLoading, isError } = useQuery(
     ["popular"],
@@ -28,20 +30,64 @@ function Home({ setSelected }) {
     //   enabled: false,
     // }
   );
+  const [topList, setTopList] = useState(null);
+
+  useEffect(
+    function () {
+      async function fetchTop() {
+        const data = await axios.get(
+          `https://api.themoviedb.org/3/movie/top_rated?language=ru&page=${page}&api_key=${KEY}`
+        );
+
+        setTopList(data.data.results);
+      }
+
+      fetchTop();
+    },
+    [page]
+  );
 
   function clickHandle(film) {
     setSelected(film);
     navigate("/film-detail", { replace: true, state: { data: data } });
   }
 
+  function prevClickHandle() {
+    if (page - 1 > 0) {
+      setPage(() => page - 1);
+    }
+  }
+
+  function nextClickHandle() {
+    setPage(() => page + 1);
+  }
+
   return (
     <>
-      <h1>Популярное</h1>
-      <ul className={styles["list"]}>
-        {data?.map((film) => (
-          <FilmCard film={film} onClick={clickHandle} key={film.id} />
-        ))}
-      </ul>
+      <div>
+        <h1>Популярное</h1>
+        <ul className={styles["list"]}>
+          {data?.map((film) => (
+            <FilmCard film={film} onClick={clickHandle} key={film.id} />
+          ))}
+        </ul>
+      </div>
+      <div>
+        <div className="btns-wrapper">
+          <button onClick={prevClickHandle}>prev</button>
+          <p>{page}</p>
+          <button onClick={nextClickHandle}>next</button>
+        </div>
+        <ul>
+          {topList?.map((film) => (
+            <li key={film.id}>
+              <img src={`${POSTER_PATH}${film.poster_path}`} alt="poster" />
+              <p>{film.title}</p>
+              <p>{film.vote_average}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
