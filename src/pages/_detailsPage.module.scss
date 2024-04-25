@@ -39,11 +39,11 @@ $background-color-hover: #592841;
 }
 
 .card {
-    overflow: hidden;
+    z-index: -1;
     position: sticky;
     top: 10rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 50%;
     height: fit-content;
     padding: 4.5rem;
@@ -54,4 +54,28 @@ $background-color-hover: #592841;
 .card__poster {
     width: 20rem;
     height: 30rem;
+}
+
+.card__info-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.card__btn {
+    cursor: pointer;
+    align-self: flex-end;
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    width: fit-content;
+    background-color: #6d3b54;
+    color: #bca5af;
+
+    &:hover {
+        background-color: #43142d;
+        transform: scale(0.95);
+        transition: all 0.3s ease-out;
+    }
 }
