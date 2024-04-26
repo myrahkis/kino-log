@@ -49,32 +49,44 @@ function Details({ selected, setSelected }) {
               }
               alt="Не удалось загрузить постер."
             />
-            <p className={styles["preview__title"]}>{film.title}</p>
+            <h3 className={styles["preview__title"]}>{film.title}</h3>
           </li>
         ))}
       </ul>
       <div className={styles["card"]}>
-        <img
-          className={styles["card__poster"]}
-          src={
-            selected?.poster_path
-              ? `${POSTER_PATH}${selected?.poster_path}`
-              : "image_not_available.png"
-          }
-          alt="Не удалось загрузить постер."
-        />
-        <div className={styles["card__info-wrapper"]}>
-          <button className={styles["card__btn"]}>Просмотрено</button>
-          <h3>{selected?.title}</h3>
-          <div>
-            Жанры:
-            {selected?.genre_ids.map((genre, id) =>
-              genresList?.map((g) => g.id === genre && <p key={id}>{g.name}</p>)
-            )}
+        <div className={styles["card__container"]}>
+          <img
+            className={styles["card__poster"]}
+            src={
+              selected?.poster_path
+                ? `${POSTER_PATH}${selected?.poster_path}`
+                : "image_not_available.png"
+            }
+            alt="Не удалось загрузить постер."
+          />
+          <div className={styles["card__info-wrapper"]}>
+            <h3>{selected?.title}</h3>
+            <div className={styles["card__genres"]}>
+              <p>Жанры:</p>
+              <div className={styles["card__genres__points"]}>
+                {selected?.genre_ids.map((genre, id) =>
+                  genresList?.map(
+                    (g) =>
+                      g.id === genre && (
+                        <p key={id}>
+                          • {g.name.charAt(0).toUpperCase()}
+                          {g.name.slice(1)}
+                        </p>
+                      )
+                  )
+                )}
+              </div>
+            </div>
+            <p>Рейтинг: {selected?.vote_average}</p>
           </div>
-          <p>Рейтинг: {selected?.vote_average}</p>
-          <p>{selected?.overview}</p>
         </div>
+        <p className={styles["card__overview"]}>{selected?.overview}</p>
+        <button className={styles["card__btn"]}>Просмотрено</button>
       </div>
     </div>
   );

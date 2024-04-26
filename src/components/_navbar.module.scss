@@ -6,12 +6,13 @@ $shadow-color-main: #3e0f29;
 %link-base {
   text-decoration: none;
   font-size: 3rem;
-  //   font-weight: ;
+  font-weight: 700;
 }
 
 .navbar {
   overflow: hidden;
   position: fixed;
+  z-index: 2;
   top: 0;
   right: 3rem;
   left: 3rem;

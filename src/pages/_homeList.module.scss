@@ -1,6 +1,7 @@
 .list {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
+    margin-top: 2rem;
     overflow-x: scroll;
     list-style: none;
     scrollbar-width: none;
@@ -10,42 +11,74 @@
 
 .card {
     cursor: pointer;
-    padding: 2rem;
     width: 20rem;
 }
 
 .card__poster {
   width: 18rem;
   height: 25rem;
-}
-
-.card__title {
+  border: 5px ridge #43142d;
 }
 
 .top-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
     margin-top: 10rem;
 }
 
 .btns-wrapper {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 1rem;
+    // align-self: flex-start;
+}
+
+.top-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #43142d;
+    color: #bca5af;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 1.5rem;
+
+    &:hover {
+        background-color: #6d3b54;
+        transition: all 0.3s ease-out;
+    }
 }
 
 .top-list {
     list-style: none;
     display: grid;
-    grid-template: auto / repeat(4, 1fr);
-    row-gap: 8rem;
+    grid-template: auto / repeat(5, 1fr);
+    column-gap: 8rem;
+    row-gap: 4rem;
 }
 
 .top-card {
     cursor: pointer;
+    width: min-content;
 }
 
 .top-card__poster {
     width: 15rem;
     height: 20rem;
+    border: 5px ridge #43142d;
+}
+
+.top-card__rating {
+    position: absolute;
+    z-index: 1;
+    background-color:#f1bc56;
+    color:#43142d;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    border: 2px ridge #f1bc56;
+    border-radius: 1rem;
 }
