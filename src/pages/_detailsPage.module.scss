@@ -35,8 +35,13 @@ $background-color-hover: #592841;
   border: 3px ridge #43142d;
 }
 
-.preview__title {
-  text-align: start;
+.preview__info {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.preview__info__title {
   margin-top: 1rem;
 }
 

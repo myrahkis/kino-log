@@ -1,0 +1,29 @@
+.list {
+    display: grid;
+    grid-template: auto / repeat(5, 1fr);
+    list-style: none;
+    column-gap: 1.5rem;
+    row-gap: 2rem;
+}
+
+.card {
+    display: flex;
+    border: 2px solid black;
+}
+
+.card__poster {
+    width: 8rem;
+    height: 12rem;
+}
+
+.card__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.card__info__title {
+    text-align: start;
+}

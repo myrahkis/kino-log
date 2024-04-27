@@ -17,7 +17,7 @@ function App() {
   }
   function deleteWatchedHandle(id) {
     setWatchedList((watchedList) =>
-      watchedList.filter((film) => film.imdbID !== id)
+      watchedList.filter((film) => film.id !== id)
     );
   }
 
