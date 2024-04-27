@@ -32,6 +32,8 @@ function Home({ setSelected }) {
   );
   const [topList, setTopList] = useState(null);
 
+  const maxPages = 467;
+
   // работает только с VPN :c
   useEffect(
     function () {
@@ -64,7 +66,9 @@ function Home({ setSelected }) {
   }
 
   function nextClickHandle() {
-    setPage(() => page + 1);
+    if (page < maxPages) {
+      setPage(() => page + 1);
+    }
   }
 
   return (
@@ -98,7 +102,48 @@ function Home({ setSelected }) {
             </span>
             Назад
           </button>
-          <h3>{page}</h3>
+          <h3>
+            {page > 1 ? (
+              <>
+                {page > 2 && (
+                  <button
+                    className={styles["top-btn__pages"]}
+                    onClick={() => setPage(1)}
+                  >
+                    1,{" "}
+                  </button>
+                )}
+                <button
+                  className={styles["top-btn__pages"]}
+                  onClick={() => setPage(page - 1)}
+                >
+                  {page - 1},
+                </button>
+                {page !== maxPages && (
+                  <button
+                    className={`${styles["top-btn__pages"]} ${styles["active"]}`}
+                  >
+                    {page}
+                  </button>
+                )}
+              </>
+            ) : (
+              <button
+                className={`${styles["top-btn__pages"]} ${styles["active"]}`}
+              >
+                {page}
+              </button>
+            )}{" "}
+            ...{" "}
+            <button
+              className={`${styles["top-btn__pages"]} ${
+                page === maxPages && styles["active"]
+              }`}
+              onClick={() => setPage(maxPages)}
+            >
+              {maxPages}
+            </button>
+          </h3>
           <button className={styles["top-btn"]} onClick={nextClickHandle}>
             Вперёд
             <span>
@@ -126,7 +171,7 @@ function Home({ setSelected }) {
               onClick={() => clickHandleTop(film)}
             >
               <p className={styles["top-card__rating"]}>
-                {film.vote_average.toString().slice(0, 3)}
+                ★ {film.vote_average.toString().slice(0, 3)}
               </p>
               <img
                 className={styles["top-card__poster"]}

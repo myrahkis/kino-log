@@ -25,7 +25,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin-top: 10rem;
+    margin-top: 5rem;
 }
 
 .btns-wrapper {
@@ -49,6 +49,24 @@
     &:hover {
         background-color: #6d3b54;
         transition: all 0.3s ease-out;
+    }
+}
+
+.top-btn__pages {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: #bca5af;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+
+    &:hover {
+        color: #9d8992;
+    }
+
+    &.active {
+        text-decoration: underline;
     }
 }
 
@@ -80,5 +98,5 @@
     margin-top: 0.5rem;
     margin-left: 0.5rem;
     border: 2px ridge #f1bc56;
-    border-radius: 1rem;
+    border-radius: 2rem;
 }
