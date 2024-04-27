@@ -1,3 +1,16 @@
+.list__wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.list__wrapper__btn {
+    cursor: pointer;
+    padding: 2rem;
+    border: none;
+    background-color: transparent;
+    align-self: flex-start;
+}
+
 .list {
     display: flex;
     gap: 3rem;

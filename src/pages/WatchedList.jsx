@@ -1,4 +1,4 @@
-function WatchedList() {
+function WatchedList({WatchedList, onDelete}) {
   return (
     <div>
       тут будет список просмотренного.

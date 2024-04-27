@@ -34,6 +34,7 @@ function Navbar({ searchQuery, onSearch }) {
         className={styles["navbar__input"]}
         value={searchQuery}
         onChange={handleSearch}
+        placeholder="Начните вводить название фильма..."
       ></input>
     </div>
   );

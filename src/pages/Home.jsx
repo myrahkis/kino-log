@@ -22,6 +22,7 @@ async function fetchPopular(signal) {
 
 function Home({ setSelected }) {
   const [page, setPage] = useState(1);
+  const popularUl = useRef(null);
   const navigate = useNavigate();
   const { data, isLoading, isError } = useQuery(
     ["popular"],
@@ -64,22 +65,54 @@ function Home({ setSelected }) {
       setPage(() => page - 1);
     }
   }
-
   function nextClickHandle() {
     if (page < maxPages) {
       setPage(() => page + 1);
     }
   }
 
+  function scrollNext() {
+    popularUl.current.scrollLeft += 1300;
+    console.log("next");
+  }
+  function scrollBack() {
+    popularUl.current.scrollLeft -= 1300;
+    console.log("back");
+  }
+
   return (
     <>
       <div>
         <h1>Популярное</h1>
-        <ul className={styles["list"]}>
-          {data?.map((film) => (
-            <FilmCard film={film} onClick={clickHandle} key={film.id} />
-          ))}
-        </ul>
+        <div className={styles["list__wrapper"]}>
+          <button className={styles["list__wrapper__btn"]} onClick={scrollBack}>
+            <svg
+              width="60px"
+              height="60px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#bca5af"
+            >
+              <path d="m22 12.002c0-5.517-4.48-9.997-9.998-9.997-5.517 0-9.997 4.48-9.997 9.997 0 5.518 4.48 9.998 9.997 9.998 5.518 0 9.998-4.48 9.998-9.998zm-1.5 0c0 4.69-3.808 8.498-8.498 8.498s-8.497-3.808-8.497-8.498 3.807-8.497 8.497-8.497 8.498 3.807 8.498 8.497zm-6.711-4.845c.141-.108.3-.157.456-.157.389 0 .755.306.755.749v8.501c0 .445-.367.75-.755.75-.157 0-.316-.05-.457-.159-1.554-1.203-4.199-3.252-5.498-4.258-.184-.142-.29-.36-.29-.592 0-.23.107-.449.291-.591zm-.289 7.564v-5.446l-3.522 2.718z" />
+            </svg>
+          </button>
+          <ul className={styles["list"]} ref={popularUl}>
+            {data?.map((film) => (
+              <FilmCard film={film} onClick={clickHandle} key={film.id} />
+            ))}
+          </ul>
+          <button className={styles["list__wrapper__btn"]} onClick={scrollNext}>
+            <svg
+              width="60px"
+              height="60px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#bca5af"
+            >
+              <path d="m2.009 12.002c0-5.517 4.48-9.997 9.998-9.997s9.998 4.48 9.998 9.997c0 5.518-4.48 9.998-9.998 9.998s-9.998-4.48-9.998-9.998zm1.5 0c0 4.69 3.808 8.498 8.498 8.498s8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497-8.498 3.807-8.498 8.497zm6.711-4.845c-.141-.108-.3-.157-.456-.157-.389 0-.755.306-.755.749v8.501c0 .445.367.75.755.75.157 0 .316-.05.457-.159 1.554-1.203 4.199-3.252 5.498-4.258.184-.142.29-.36.29-.592 0-.23-.107-.449-.291-.591zm.289 7.564v-5.446l3.523 2.718z" />
+            </svg>
+          </button>
+        </div>
       </div>
       <div className={styles["top-wrapper"]}>
         <h1>Топ фильмов</h1>
