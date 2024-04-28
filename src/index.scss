@@ -36,7 +36,7 @@ body {
   text-align: center;
   min-width: 100%;
   min-height: 100vh;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   font-size: 1.5rem;
   background-color: $background-color;
@@ -44,8 +44,10 @@ body {
 }
 
 .App {
+  position: relative;
+  min-height: 85vh;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   flex-direction: column;
   padding-top: 13rem;
   padding-bottom: 6rem;

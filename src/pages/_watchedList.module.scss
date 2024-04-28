@@ -8,12 +8,21 @@
 
 .card {
     display: flex;
-    border: 2px solid black;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    box-shadow: 1px 1px 4px #280c1b;
+
+    &:hover {
+        background-color: #3c0d27;
+        transition: all 0.3s ease-in;
+    }
 }
 
 .card__poster {
     width: 8rem;
     height: 12rem;
+    border: 3px ridge #43142d;
+    border-top-left-radius: 2rem;
 }
 
 .card__info {
@@ -26,4 +35,18 @@
 
 .card__info__title {
     text-align: start;
+}
+
+.card__info__delete-btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 1.5rem;
+    color: #bca5af;
+    background-color: #862e42;
+    padding: 0.5rem 0.8rem;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: 0.4s ease-in-out;
+    }
 }

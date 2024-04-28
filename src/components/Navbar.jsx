@@ -17,7 +17,7 @@ function Navbar({ searchQuery, onSearch }) {
         }}
         onClick={() => onSearch("")}
       >
-        Home
+        Главная
       </NavLink>
       <NavLink
         to={"/watched"}
@@ -28,7 +28,7 @@ function Navbar({ searchQuery, onSearch }) {
         }}
         onClick={() => onSearch("")}
       >
-        Watched
+        Просмотренное
       </NavLink>
       <input
         className={styles["navbar__input"]}

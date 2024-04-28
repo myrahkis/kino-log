@@ -13,7 +13,7 @@
 
 .list {
     display: flex;
-    gap: 3rem;
+    gap: 1rem;
     margin-top: 2rem;
     overflow-x: scroll;
     list-style: none;
@@ -25,12 +25,25 @@
 .card {
     cursor: pointer;
     width: 20rem;
+    padding: 1rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+
+    &:hover {
+        background-color: #3c0d27;
+        transition: all 0.3s ease-in;
+    }
 }
 
 .card__poster {
   width: 18rem;
   height: 25rem;
   border: 5px ridge #43142d;
+}
+
+.card__title {
+    font-weight: 600;
+    text-align: left;
 }
 
 .top-wrapper {
@@ -87,13 +100,21 @@
     list-style: none;
     display: grid;
     grid-template: auto / repeat(5, 1fr);
-    column-gap: 8rem;
+    column-gap: 5.5rem;
     row-gap: 4rem;
 }
 
 .top-card {
     cursor: pointer;
     width: min-content;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    padding: 1rem;
+
+    &:hover {
+        background-color: #3c0d27;
+        transition: all 0.3s ease-in;
+    }
 }
 
 .top-card__poster {
@@ -108,8 +129,8 @@
     background-color:#f1bc56;
     color:#43142d;
     padding: 0.5rem;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
     border: 2px ridge #f1bc56;
     border-radius: 2rem;
 }

@@ -16,9 +16,10 @@ function App() {
     setWatchedList((watchedList) => [...watchedList, film]);
   }
   function deleteWatchedHandle(id) {
-    setWatchedList((watchedList) =>
-      watchedList.filter((film) => film.id !== id)
-    );
+    if (window.confirm("Вы уверены, что хотите убрать фильм из списка?"))
+      setWatchedList((watchedList) =>
+        watchedList.filter((film) => film.id !== id)
+      );
   }
 
   return (

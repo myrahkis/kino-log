@@ -5,14 +5,21 @@ $thumb-color: #bca5af;
   display: grid;
   grid-template: auto / repeat(4, 1fr);
   row-gap: 8rem;
+  margin-top: 2rem;
 }
 
 .card {
   cursor: pointer;
   width: 30rem;
-  height: 45rem;
-  padding: 2rem;
+  padding: 1rem;
   list-style-type: none;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+
+  &:hover {
+    background-color: #3c0d27;
+    transition: all 0.3s ease-in;
+  }
 }
 
 .card__poster {
