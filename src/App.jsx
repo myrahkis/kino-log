@@ -12,6 +12,7 @@ function App() {
   const [watchedList, setWatchedList] = useLocalStorage("watched", []);
   const queryClient = new QueryClient();
 
+  // добавление/удаление в просмотренное
   function addToWatchedHandle(film) {
     setWatchedList((watchedList) => [...watchedList, film]);
   }

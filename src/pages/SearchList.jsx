@@ -27,12 +27,12 @@ function SearchList({ query, setSearch, setSelected }) {
   const navigate = useNavigate();
   const { data, isLoading, isError } = useQuery(
     ["film", query],
-    ({ signal }) => fetchSearch(signal, query)
-    // {
-    //   enabled: false,
-    // }
+    ({ signal }) => fetchSearch(signal, query),
+    {
+      refetchOnWindowFocus: false,
+    }
   );
-
+  
   function clickHandle(film) {
     setSelected(film);
     navigate("/film-detail", { replace: true, state: { data: data } });
@@ -42,15 +42,19 @@ function SearchList({ query, setSearch, setSelected }) {
   return (
     <div className={styles["container"]}>
       {data === 0 ? (
-        <p>По вашему запросу не удалось ничего найти.</p>
+        <h1>По вашему запросу не удалось ничего найти.</h1>
       ) : (
         <>
           <h1>Вот что удалось найти</h1>
-          <ul className={styles["result-wrapper"]}>
-            {data?.map((film) => (
-              <FilmCard film={film} onClick={clickHandle} key={film.id} />
-            ))}
-          </ul>
+          {isLoading && <h3>Ищем подходящие фильмы...</h3>}
+          {!isLoading && isError && <h3>Что-то пошло не так при поиске!</h3>}
+          {!isLoading && !isError && (
+            <ul className={styles["result-wrapper"]}>
+              {data?.map((film) => (
+                <FilmCard film={film} onClick={clickHandle} key={film.id} />
+              ))}
+            </ul>
+          )}
         </>
       )}
     </div>

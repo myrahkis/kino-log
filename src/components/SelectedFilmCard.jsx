@@ -9,6 +9,8 @@ const POSTER_PATH = "https://image.tmdb.org/t/p/original/";
 function SelectedFilmCard({ selected, isWatched, onWatched }) {
   const [genresList, setGenresList] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const collapseNumWords = 53;
   const overview_length = selected?.overview.split(" ").length;
@@ -17,11 +19,24 @@ function SelectedFilmCard({ selected, isWatched, onWatched }) {
   // получение списка жанров
   useEffect(function () {
     async function fetchGenres() {
-      const data = await axios.get(
-        `https://api.themoviedb.org/3/genre/movie/list?language=ru&api_key=${KEY}`
-      );
+      try {
+        setIsLoading(true);
+        setError("");
 
-      setGenresList(data.data.genres);
+        const res = await axios.get(
+          `https://api.themoviedb.org/3/genre/movie/list?language=ru&api_key=${KEY}`
+        );
+
+        if (!res.status === 200)
+          throw new Error("Что-то пошло не так с загрузкой списка жанров!");
+
+        setGenresList(res.data.genres);
+        setError("");
+      } catch (e) {
+        setError(e.message);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     fetchGenres();
@@ -74,19 +89,22 @@ function SelectedFilmCard({ selected, isWatched, onWatched }) {
               <div className={styles["card__genres"]}>
                 <p>Жанры:</p>
                 {/* получение название жанра по его id */}
-                <div className={styles["card__genres__points"]}>
-                  {selected?.genre_ids.map((genre, id) =>
-                    genresList?.map(
-                      (g) =>
-                        g.id === genre && (
-                          <p key={id}>
-                            • {g.name.charAt(0).toUpperCase()}
-                            {g.name.slice(1)}
-                          </p>
-                        )
-                    )
-                  )}
-                </div>
+                {error !== "" && <p>Что-то пошло не так с загрузкой жанров!</p>}
+                {!isLoading && error === "" && (
+                  <div className={styles["card__genres__points"]}>
+                    {selected?.genre_ids.map((genre, id) =>
+                      genresList?.map(
+                        (g) =>
+                          g.id === genre && (
+                            <p key={id}>
+                              • {g.name.charAt(0).toUpperCase()}
+                              {g.name.slice(1)}
+                            </p>
+                          )
+                      )
+                    )}
+                  </div>
+                )}
               </div>
               <p>Релиз: {selected?.release_date}</p>
               {/* развернуть/свернуть для описания */}
