@@ -1,8 +1,7 @@
-# React + Vite
+# KinoLog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Тестовое задание для VK (React-разработчик, RuStore)
 
-Currently, two official plugins are available:
+Стек: React.js, SCSS, TMDB API (На территории России не работает (только с запрещенным VPN с:)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Описание: популярные фильмы, топ фильмов, поиск фильмов, возможность добавить фильм в просмотренное и список просмотренного, карточка фильма, (немного косая) адаптивная верстка.
