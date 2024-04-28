@@ -1,52 +1,92 @@
 .list {
-    display: grid;
-    grid-template: auto / repeat(5, 1fr);
-    list-style: none;
-    column-gap: 1.5rem;
-    row-gap: 2rem;
+  display: grid;
+  grid-template: auto / repeat(5, 1fr);
+  list-style: none;
+  column-gap: 1.5rem;
+  row-gap: 2rem;
 }
 
 .card {
-    display: flex;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-    box-shadow: 1px 1px 4px #280c1b;
+  display: flex;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  box-shadow: 1px 1px 4px #280c1b;
 
-    &:hover {
-        background-color: #3c0d27;
-        transition: all 0.3s ease-in;
-    }
+  &:hover {
+    background-color: #3c0d27;
+    transition: all 0.3s ease-in;
+  }
 }
 
 .card__poster {
-    width: 8rem;
-    height: 12rem;
-    border: 3px ridge #43142d;
-    border-top-left-radius: 2rem;
+  width: 8rem;
+  height: 12rem;
+  border: 3px ridge #43142d;
+  border-top-left-radius: 2rem;
 }
 
 .card__info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .card__info__title {
-    text-align: start;
+  text-align: start;
 }
 
 .card__info__delete-btn {
-    cursor: pointer;
-    border: none;
-    border-radius: 1.5rem;
-    color: #bca5af;
-    background-color: #862e42;
-    padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 1.5rem;
+  color: #bca5af;
+  background-color: #862e42;
+  padding: 0.5rem 0.8rem;
 
-    &:hover {
-        transform: scale(1.1);
-        transition: 0.4s ease-in-out;
-    }
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.4s ease-in-out;
+  }
+}
+
+/* adaptivness */
+
+/* Large: 992-1199px */
+@media (max-width: 1199px) {
+  .list {
+    grid-template: auto / repeat(4, 1fr);
+  }
+}
+
+/* Medium: 768-991px */
+@media (max-width: 991px) {
+  .list {
+    grid-template: auto / repeat(3, 1fr);
+  }
+}
+
+/* Small: 576-767px */
+@media (max-width: 767px) {
+  .list {
+    grid-template: auto / repeat(2, 1fr);
+  }
+}
+
+/* Extra small: 320-575px */
+@media (max-width: 575px) {
+  .list {
+    grid-template: auto / repeat(2, 1fr);
+    list-style: none;
+    column-gap: 1.5rem;
+    row-gap: 2rem;
+  }
+  .card__poster {
+    width: 6rem;
+    height: 9rem;
+  }
+  .card__info__delete-btn {
+    font-size: 1rem;
+  }
 }

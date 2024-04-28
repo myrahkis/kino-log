@@ -1,5 +1,21 @@
 .footer {
-    padding: 4rem;
-    margin-top: auto;
-    border-top: 0.2rem dashed #86717a;
+  padding: 4rem;
+  margin-top: auto;
+  border-top: 0.2rem dashed #86717a;
+}
+
+/* adaptivness */
+
+/* Small: 576-767px */
+@media (max-width: 767px) {
+  .footer {
+    visibility: hidden;
+  }
+}
+
+/* Extra small: 320-575px */
+@media (max-width: 575px) {
+  .footer {
+    visibility: hidden;
+  }
 }

@@ -1,5 +1,4 @@
-@import "components/navbar.module.scss";
-@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@500..900&display=swap");
 
 $background-color: #43142d;
 $text-color: #bca5af;
@@ -53,4 +52,63 @@ body {
   padding-bottom: 6rem;
   padding-left: 10rem;
   padding-right: 10rem;
+}
+
+/* adaptivness */
+
+/* Large: 992-1199px */
+@media (max-width: 1199px) {
+  .App {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
+
+/* Medium: 768-991px */
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  .App {
+    padding-top: 11rem;
+    padding-bottom: 2rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+/* Small: 576-767px */
+@media (max-width: 767px) {
+  html {
+    font-size: 50%;
+  }
+  .App {
+    padding-top: 11rem;
+    padding-bottom: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* Extra small: 320-575px */
+@media (max-width: 575px) {
+  html {
+    font-size: 45%;
+  }
+  body {
+    font-size: 1rem;
+  }
+  .App {
+    padding-top: 9rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1 {
+    font-weight: 700;
+  }
+  h3 {
+    font-weight: 600;
+  }
 }

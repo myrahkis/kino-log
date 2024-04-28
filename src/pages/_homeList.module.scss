@@ -1,38 +1,39 @@
 .list__wrapper {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .list__wrapper__btn {
-    cursor: pointer;
-    padding: 2rem;
-    border: none;
-    background-color: transparent;
-    align-self: flex-start;
+  cursor: pointer;
+  padding: 2rem;
+  border: none;
+  background-color: transparent;
+  align-self: flex-start;
 }
 
 .list {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-    overflow-x: scroll;
-    list-style: none;
-    scrollbar-width: none;
-    scroll-behavior: smooth;
-    scrollbar-gutter: stable both-edges;
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  overflow-x: scroll;
+  list-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable both-edges;
 }
 
 .card {
-    cursor: pointer;
-    width: 20rem;
-    padding: 1rem;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
+  cursor: pointer;
+  width: 20rem;
+  padding: 1rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
 
-    &:hover {
-        background-color: #3c0d27;
-        transition: all 0.3s ease-in;
-    }
+  &:hover {
+    background-color: #3c0d27;
+    transform: translate(0, -10px);
+    transition: all 0.3s ease-in;
+  }
 }
 
 .card__poster {
@@ -42,95 +43,170 @@
 }
 
 .card__title {
-    font-weight: 600;
-    text-align: left;
+  font-weight: 600;
+  text-align: left;
 }
 
 .top-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 5rem;
 }
 
 .btns-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    // align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  // align-self: flex-start;
 }
 
 .top-btn {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #43142d;
-    color: #bca5af;
-    border: none;
-    border-radius: 1rem;
-    padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #43142d;
+  color: #bca5af;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
 
-    &:hover {
-        background-color: #6d3b54;
-        transition: all 0.3s ease-out;
-    }
+  &:hover {
+    background-color: #6d3b54;
+    transition: all 0.3s ease-out;
+  }
 }
 
 .top-btn__pages {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    color: #bca5af;
-    font-weight: 700;
-    font-size: 1.5rem;
-    padding: 0.5rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #bca5af;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 0.5rem;
 
-    &:hover {
-        color: #9d8992;
-    }
+  &:hover {
+    color: #9d8992;
+  }
 
-    &.active {
-        text-decoration: underline;
-    }
+  &.active {
+    text-decoration: underline;
+  }
 }
 
 .top-list {
-    list-style: none;
-    display: grid;
-    grid-template: auto / repeat(5, 1fr);
-    column-gap: 5.5rem;
-    row-gap: 4rem;
+  list-style: none;
+  display: grid;
+  grid-template: auto / repeat(5, 1fr);
+  column-gap: 5.5rem;
+  row-gap: 4rem;
 }
 
 .top-card {
-    cursor: pointer;
-    width: min-content;
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-    padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min-content;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  padding: 1rem;
 
-    &:hover {
-        background-color: #3c0d27;
-        transition: all 0.3s ease-in;
-    }
+  &:hover {
+    background-color: #3c0d27;
+    transition: all 0.3s ease-in;
+  }
+}
+
+.top-card__img-rating-wrapper {
+  width: fit-content;
 }
 
 .top-card__poster {
-    width: 15rem;
-    height: 20rem;
-    border: 5px ridge #43142d;
+  width: 15rem;
+  height: 20rem;
+  border: 5px ridge #43142d;
 }
 
 .top-card__rating {
-    position: absolute;
-    z-index: 1;
-    background-color:#f1bc56;
-    color:#43142d;
+  position: absolute;
+  z-index: 1;
+  background-color: #f1bc56;
+  color: #43142d;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border: 2px ridge #f1bc56;
+  border-radius: 2rem;
+}
+
+/* adaptivness */
+
+/* Large: 992-1199px */
+@media (max-width: 1199px) {
+  .top-list {
+    grid-template: auto / repeat(4, 1fr);
+  }
+}
+
+/* Medium: 768-991px */
+@media (max-width: 991px) {
+  .top-list {
+    grid-template: auto / repeat(3, 1fr);
+    column-gap: 3rem;
+  }
+}
+
+/* Small: 576-767px */
+@media (max-width: 767px) {
+  .card__poster {
+    width: 13rem;
+    height: 18rem;
+  }
+  .list__wrapper__btn {
+    padding: 1rem;
+  }
+  .top-list {
+    grid-template: auto / repeat(4, 1fr);
+    column-gap: 0.5rem;
+    justify-content: center;
+  }
+  .top-card {
+    margin: 0 auto;
+  }
+  .top-card__poster {
+    width: 10rem;
+    height: 15rem;
+  }
+  .top-card__rating {
+    padding: 0.4rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+  }
+}
+
+/* Extra small: 320-575px */
+@media (max-width: 575px) {
+  .top-list {
+    grid-template: auto / repeat(3, 1fr);
+    column-gap: 0.5rem;
+    justify-content: center;
+  }
+  .card__poster {
+    width: 10rem;
+    height: 15rem;
+  }
+  .list__wrapper__btn > svg {
+    width: 4rem;
+    height: 4rem;
+  }
+  .btns-wrapper {
+    gap: 0;
+  }
+  .top-btn {
     padding: 0.5rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    border: 2px ridge #f1bc56;
-    border-radius: 2rem;
+  }
 }

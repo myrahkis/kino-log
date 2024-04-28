@@ -99,8 +99,8 @@ function Home({ setSelected }) {
         <div className={styles["list__wrapper"]}>
           <button className={styles["list__wrapper__btn"]} onClick={scrollBack}>
             <svg
-              width="60px"
-              height="60px"
+              width="7rem"
+              height="7rem"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
               fill="#bca5af"
@@ -125,8 +125,8 @@ function Home({ setSelected }) {
           )}
           <button className={styles["list__wrapper__btn"]} onClick={scrollNext}>
             <svg
-              width="60px"
-              height="60px"
+              width="7rem"
+              height="7rem"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
               fill="#bca5af"
@@ -181,18 +181,20 @@ function TopFilmCard({ film, onCardClick }) {
       key={film.id}
       onClick={() => onCardClick(film)}
     >
-      <p className={styles["top-card__rating"]}>
-        ★ {film.vote_average.toString().slice(0, 3)}
-      </p>
-      <img
-        className={styles["top-card__poster"]}
-        src={
-          film.poster_path
-            ? `${POSTER_PATH}${film.poster_path}`
-            : "image_not_available.png"
-        }
-        alt="Не удалось загрузить постер."
-      />
+      <div className={styles['top-card__img-rating-wrapper']}>
+        <p className={styles["top-card__rating"]}>
+          ★ {film.vote_average.toString().slice(0, 3)}
+        </p>
+        <img
+          className={styles["top-card__poster"]}
+          src={
+            film.poster_path
+              ? `${POSTER_PATH}${film.poster_path}`
+              : "image_not_available.png"
+          }
+          alt="Не удалось загрузить постер."
+        />
+      </div>
       <h3>{film.title}</h3>
     </li>
   );

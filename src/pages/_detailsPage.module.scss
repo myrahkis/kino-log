@@ -36,9 +36,9 @@ $background-color-hover: #592841;
 }
 
 .preview__info {
-    display: flex;
-    flex-direction: column;
-    text-align: start;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
 }
 
 .preview__info__title {
@@ -154,4 +154,119 @@ $background-color-hover: #592841;
   padding: 0.5rem 1rem;
   border: 2px solid #6d3b54;
   border-radius: 2rem;
+}
+
+/* adaptivness */
+
+/* Large: 992-1199px */
+@media (max-width: 1199px) {
+  .list {
+    gap: 1rem;
+    width: 40%;
+  }
+  .card {
+    width: 60%;
+    padding: 4.5rem;
+  }
+}
+
+/* Medium: 768-991px */
+@media (max-width: 991px) {
+  .list {
+    gap: 1rem;
+    width: 40%;
+  }
+  .card {
+    width: 60%;
+    padding: 4rem;
+  }
+  .card__poster {
+    width: 13rem;
+    height: 17rem;
+  }
+  .card__rating {
+    font-size: 1.3rem;
+    padding: 0.4rem;
+    margin-top: 0.5rem;
+  }
+  .card__title {
+    font-size: 2rem;
+  }
+  .preview {
+    gap: 2rem;
+    padding: 0 2.5rem;
+  }
+  .preview__info__title {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  .preview__poster {
+    max-width: 6.5rem;
+    height: 9.5rem;
+    border: 3px ridge #43142d;
+  }
+}
+
+/* Small: 576-767px */
+@media (max-width: 767px) {
+  .container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .preview__poster {
+    max-width: 6.5rem;
+    height: 9.5rem;
+    border: 3px ridge #43142d;
+  }
+  .card {
+    width: 60%;
+    padding: 3rem;
+  }
+}
+
+/* Extra small: 320-575px */
+@media (max-width: 575px) {
+  .container {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  .list {
+    width: fit-content;
+    z-index: 1;
+  }
+  .card__container {
+    justify-content: center;
+  }  
+  .card {
+    top: 5rem;
+    width: fit-content;
+    padding: 1.5rem;
+  }
+  .card__poster {
+    width: 10rem;
+    height: 14rem;
+  }
+  .card__title {
+    font-size: 2rem;
+  }
+  .card__btn {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .card__watched {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  .card__rating {
+    font-size: 1rem;
+    padding: 0.4rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+  }
+  .card__overview__text-btn {
+    font-size: 1rem;
+  }
 }
