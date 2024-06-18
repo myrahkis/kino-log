@@ -21,9 +21,9 @@ function Router({
           element={<Home query={searchQuery} setSelected={setSelected} />}
           key="home"
         />
-        <Route path={"/watched"} element={<WatchedList watchedList={watchedList} onDelete={onDelete}/>} key="watched" />
+        <Route path={"watched"} element={<WatchedList watchedList={watchedList} onDelete={onDelete}/>} key="watched" />
         <Route
-          path={"/film-detail"}
+          path={"film-detail"}
           element={
             <Details
               selected={selected}
